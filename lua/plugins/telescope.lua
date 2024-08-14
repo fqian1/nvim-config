@@ -6,14 +6,17 @@ return {
 		{ 'nvim-telescope/telescope-ui-select.nvim' },
 		{ 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
 	},
-	config = function()
-		require('telescope').setup {
-			extensions = {
-				['ui-select'] = {
-					require('telescope.themes').get_dropdown(),
-				},
-			},
+	opts = {
+		defaults = {},
+		extensions = {
+			['ui-select'] = {
+				require('telescope.themes').get_dropdown(),
+			}
 		}
-		pcall(require('telescope').load_extension, 'ui-select')
+	},
+
+	config = function(_, opts)
+		require('telescope').setup(opts)
+		require('telescope').load_extension('ui-select')
 	end
 }
