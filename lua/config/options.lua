@@ -33,6 +33,7 @@ vim.opt.matchtime = 2                  -- Highlight matching brackets/parenthese
 vim.opt.list = true                    -- Show invisible characters (tabs, spaces, etc.)
 vim.opt.listchars = {tab = '»·', trail = '·', extends = '→', precedes = '←'} -- Set symbols for invisible characters
 vim.opt.linebreak = true               -- Break lines at word boundaries when wrapping
+vim.opt.wrap = false
 vim.opt.showbreak = '↪\\'              -- Show an arrow where lines break
 vim.opt.signcolumn = 'yes'             -- Always show the sign column (used by plugins like GitGutter)
 vim.opt.colorcolumn = '80'             -- Highlight column 80 (good for code style)

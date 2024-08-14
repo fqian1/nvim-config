@@ -1,7 +1,6 @@
 return {
 	-- Core Treesitter plugin
 	"nvim-treesitter/nvim-treesitter",
-	event = { "BufReadPre", "BufNewFile" },
 	build = function()
 		require("nvim-treesitter.install").update({ with_sync = true })()
 	end,
