@@ -20,6 +20,7 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- Directory for undo fil
 vim.opt.hidden = true                  -- Allow switching buffers without saving
 vim.opt.scrolloff = 8                  -- Start scrolling 8 lines before reaching the edge of the viewport
 vim.opt.sidescrolloff = 8              -- Keep 8 columns visible to the left and right of the cursor
+vim.g.have_nerd_font = true
 
 -- -------------------------
 -- USER INTERFACE
@@ -30,7 +31,7 @@ vim.opt.relativenumber = true          -- Show relative line numbers
 vim.opt.cursorline = true              -- Highlight the current line
 vim.opt.showmatch = true               -- Show matching brackets/parentheses
 vim.opt.matchtime = 2                  -- Highlight matching brackets/parentheses for 2/10th of a second
-vim.opt.list = true                    -- Show invisible characters (tabs, spaces, etc.)
+vim.opt.list = false                   -- Show invisible characters (tabs, spaces, etc.)
 vim.opt.listchars = {tab = '»·', trail = '·', extends = '→', precedes = '←'} -- Set symbols for invisible characters
 vim.opt.linebreak = true               -- Break lines at word boundaries when wrapping
 vim.opt.wrap = false
@@ -51,9 +52,9 @@ vim.cmd('syntax on')                   -- Enable syntax highlighting
 -- TABS & INDENTATION
 -- -------------------------
 
-vim.opt.tabstop = 4                    -- Number of spaces a <Tab> in the file counts for
-vim.opt.shiftwidth = 4                 -- Number of spaces to use for each step of (auto)indent
-vim.opt.softtabstop = 4                -- Number of spaces in tab when editing
+vim.opt.tabstop = 2                    -- Number of spaces a <Tab> in the file counts for
+vim.opt.shiftwidth = 2                 -- Number of spaces to use for each step of (auto)indent
+vim.opt.softtabstop = 2                -- Number of spaces in tab when editing
 vim.opt.expandtab = false               -- Convert tabs to spaces
 vim.opt.autoindent = true              -- Copy indent from current line when starting a new line
 vim.opt.smartindent = true             -- Automatically inserts one extra level of indentation in some cases

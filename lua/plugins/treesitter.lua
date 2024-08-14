@@ -6,8 +6,8 @@ return {
 	end,
 	opts = {
 		-- Ensure these languages are installed
-        sync_install = false,
-        auto_install = true,
+		sync_install = false,
+		auto_install = true,
 		ensure_installed = {"c", "cpp", "rust", "go", "zig", "asm"},
 		highlight = {
 			enable = true, -- Enables syntax highlighting using Treesitter

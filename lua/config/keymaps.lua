@@ -10,3 +10,9 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, opts)
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, opts)
 vim.keymap.set('n', '<leader>fb', builtin.buffers, opts)
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, opts)
+
+-- Ctrl C and Ctrl V binds
+map('v', '<C-c>', '"+y', opts)
+map('n', '<C-v>', '"+p', opts)
+map('v', '<C-v>', '"+p', opts)
+map('i', '<C-v>', '<C-r>+', opts)
