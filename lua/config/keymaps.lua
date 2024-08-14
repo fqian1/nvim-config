@@ -1,0 +1,3 @@
+vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true }) -- Stay in visual mode after shifting left
+vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true }) -- Stay in visual mode after shifting right
+vim.api.nvim_set_keymap('n', '<leader>c', ':Commentary<CR>', { noremap = true, silent = true }) -- Quickly comment out code with leader+c (requires tpope's commentary plugin)
