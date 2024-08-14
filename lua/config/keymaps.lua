@@ -6,7 +6,7 @@ map('v', '>', '>gv', opts)                          -- Stay in visual mode after
 -- map('n', '<leader>c', ':Commentary<CR>', opts)      -- Quickly comment out code with leader+c (requires tpope's commentary plugin)
 
 local builtin = require('telescope.builtin')
-map('n', '<leader>ff', builtin.find_files, opts)
-map('n', '<leader>fg', builtin.live_grep, opts)
-map('n', '<leader>fb', builtin.buffers, opts)
-map('n', '<leader>fh', builtin.help_tags, opts)
+vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, {})
+vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, {})
+vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, {})
+vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, {})
