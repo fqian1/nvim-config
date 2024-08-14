@@ -44,7 +44,7 @@ vim.opt.foldmethod = 'syntax'          -- Fold based on syntax (indentation, bra
 vim.opt.foldlevelstart = 99            -- Start with all folds open
 vim.opt.wildignore = {'*.o', '*.obj', '*.bin', '*.dll', '*.exe'} -- Ignore common binary files during tab completion
 vim.cmd('syntax on')                   -- Enable syntax highlighting
-vim.cmd('colorscheme desert')          -- Set the colorscheme to 'desert'
+-- vim.cmd('colorscheme desert')          -- Set the colorscheme to 'desert'
 
 -- -------------------------
 -- TABS & INDENTATION
@@ -78,7 +78,7 @@ vim.opt.timeoutlen = 500               -- Time in milliseconds to wait for a map
 vim.opt.ttimeoutlen = 10               -- Time in milliseconds to wait for key code sequences
 vim.opt.keymodel = {'startsel', 'stopsel'} -- Use Shift and Ctrl to select text
 vim.opt.clipboard = 'unnamed'      -- Use the system clipboard for copy/paste
-vim.opt.whichwrap:append {'<', '>', 'h', 'l'} -- Allow left/right arrows to wrap to the previous/next line
+-- vim.opt.whichwrap:append {'<', '>', 'h', 'l'} -- Allow left/right arrows to wrap to the previous/next line
 vim.opt.wildignorecase = true          -- Ignore case when completing file names and directories
 
 -- -------------------------
