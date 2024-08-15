@@ -31,13 +31,6 @@ This repository contains my personal Neovim configuration files and plugins.
    git clone https://github.com/yourusername/neovim-config.git ~/.config/nvim
    ```
 
-3. Install a plugin manager (if not already installed), e.g., [vim-plug](https://github.com/junegunn/vim-plug)
-
-4. Open Neovim and install plugins:
-   ```
-   :PlugInstall
-   ```
-
 ## Features
 
 - List key features of your Neovim configuration
@@ -49,7 +42,25 @@ Describe your custom key mappings here. For example:
 
 - `<leader>ff`: Find files
 - `<leader>fg`: Live grep
-- `<C-n>`: Toggle file explorer
+- `<leader>fe`: Toggle file explorer
+
+Telescope mappings (Normal mode):
+- ["g"] = Goto parent directory
+- ["e"] = Go to home directory
+- ["J"] = Scroll preview down
+- ["K"] = Scroll preview up
+- ["o"] = Open in file explorer
+- ["w"] = Goto CWD
+- ["h"] = Toggle hidden folders
+
+- ["c"] = Create file/folder
+- ["y"] = Copy file
+- ["m"] = Move
+- ["r"] = Rename
+- ["d"] = Remove
+- ["x"] = Open with horizontal split
+- ["v"] = Open with vertical split
+- ["t"] = Open in new tab
 
 ## Plugins
 
@@ -65,12 +76,4 @@ If you have any custom Lua or Vimscript functions, briefly describe them here.
 
 ## Colorscheme
 
-Mention your preferred colorscheme and any customizations.
-
-## Contributing
-
-If you're open to contributions, provide guidelines here. Otherwise, you can remove this section.
-
-## License
-
-Specify your license here, or state that the configuration is for personal use only.
+tokyonight
