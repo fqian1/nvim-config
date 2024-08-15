@@ -1,5 +1,6 @@
 return {
 	'nvim-telescope/telescope.nvim',
+	cmd = 'Telescope',
 	branch = '0.1.x',
 	dependencies = {
 		'nvim-lua/plenary.nvim',
@@ -9,12 +10,11 @@ return {
 		'nvim-telescope/telescope-frecency.nvim',
 		'nvim-telescope/telescope-file-browser.nvim',
 	},
+
 	opts = {
-		defaults = {},
+		defaults = {
+		},
 		extensions = {
-			['ui-select'] = {
-				require('telescope.themes').get_dropdown(),
-			},
 		},
 	},
 
