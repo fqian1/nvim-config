@@ -11,12 +11,74 @@ return {
 		'nvim-telescope/telescope-file-browser.nvim',
 	},
 
-	opts = {
-		defaults = {
-		},
-		extensions = {
-		},
-	},
+	opts = function()
+		local actions = require('telescope.actions')
+		local fb_actions = require("telescope").extensions.file_browser.actions
+		return {
+			defaults = {
+				vimgrep_arguments = {
+					'rg',
+					'--color=never',
+					'--no-heading',
+					'--with-filename',
+					'--line-number',
+					'--column',
+					'--smart-case'
+				},
+				prompt_prefix = "🔍 ",
+				selection_caret = "➜ ",
+				entry_prefix = "  ",
+				initial_mode = "insert",
+				sort_mru = true,
+				sorting_strategy = "descending",
+				layout_strategy = "horizontal",
+				layout_config = {
+					horizontal = {
+						preview_width = 0.6,
+						results_width = 0.8,
+					},
+					width = 0.9,
+					height = 0.9,
+					preview_cutoff = 120,
+				},
+				file_ignore_patterns = { "node_modules", ".git/" },
+				winblend = 10,
+				border = {},
+				path_display = { "truncate" },
+				color_devicons = true,
+				set_env = { ["COLORTERM"] = "truecolor" },
+				mappings = {
+					i = {},
+					n = {
+						["x"] = actions.select_horizontal,
+						["v"] = actions.select_vertical,
+						["t"] = actions.select_tab,
+						["J"] = actions.preview_scrolling_down,
+						["K"] = actions.preview_scrolling_up,
+					}
+				}
+			},
+			extensions = {
+				['ui-select'] = {
+					require('telescope.themes').get_dropdown({
+						layout_config = { width = 0.5, height = 0.4 },
+						previewer = false,
+						shorten_path = true,
+					})
+				},
+				fzy_native = {
+					override_generic_sorter = false,
+					override_file_sorter = true,
+				},
+				frecency = {
+					default_workspace = 'CWD',
+					show_scores = true,
+					show_unindexed = false,
+					ignore_patterns = { "*.git/*", "*/tmp/*" },
+				}
+			}
+		}
+	end,
 
 	config = function(_, opts)
 		require('telescope').setup(opts)

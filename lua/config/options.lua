@@ -34,7 +34,7 @@ vim.opt.matchtime = 2                  -- Highlight matching brackets/parenthese
 vim.opt.list = false                   -- Show invisible characters (tabs, spaces, etc.)
 vim.opt.listchars = {tab = '»·', trail = '·', extends = '→', precedes = '←'} -- Set symbols for invisible characters
 vim.opt.linebreak = true               -- Break lines at word boundaries when wrapping
-vim.opt.wrap = false
+vim.opt.wrap = false									 -- Disable linewrap
 vim.opt.showbreak = '↪\\'              -- Show an arrow where lines break
 vim.opt.signcolumn = 'yes'             -- Always show the sign column (used by plugins like GitGutter)
 vim.opt.colorcolumn = '80'             -- Highlight column 80 (good for code style)
@@ -42,8 +42,10 @@ vim.opt.cmdheight = 2                  -- Set the command bar height to 2 lines
 vim.opt.laststatus = 2                 -- Always show the status line
 vim.opt.splitbelow = true              -- Horizontal splits open below the current window
 vim.opt.splitright = true              -- Vertical splits open to the right of the current window
-vim.opt.foldmethod = 'syntax'          -- Fold based on syntax (indentation, braces, etc.)
-vim.opt.foldlevelstart = 99            -- Start with all folds open
+vim.opt.foldmethod = 'expr'						 -- Use treesitter fold method
+vim.opt.foldexpr = require('nvim-treesitter').foldexpr()
+vim.opt.foldenable = true							 -- Enable folds
+vim.opt.foldlevelstart = 3             -- Start 3 folds deep
 vim.opt.wildignore = {'*.o', '*.obj', '*.bin', '*.dll', '*.exe'} -- Ignore common binary files during tab completion
 vim.cmd('syntax on')                   -- Enable syntax highlighting
 -- vim.cmd('colorscheme desert')          -- Set the colorscheme to 'desert'
@@ -99,7 +101,7 @@ vim.opt.spellsuggest = {'best', 9}    -- Show best 9 spelling suggestions
 -- -------------------------
 
 vim.opt.statusline = '%f %h%m%r %=%-14.(%l,%c%V%) %P' -- Customize statusline: show file name, status, and cursor position
-vim.opt.showmode = true             -- Don't show mode (like -- INSERT --) in command line
+vim.opt.showmode = true                  -- Show mode (like -- INSERT --) in command line
 vim.opt.rulerformat = '%15(%l,%c%V %P%)' -- Show line, column, and percentage in the ruler
 
 -- -------------------------
