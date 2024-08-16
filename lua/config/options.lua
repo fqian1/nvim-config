@@ -54,9 +54,9 @@ vim.cmd('syntax on')                   -- Enable syntax highlighting
 -- TABS & INDENTATION
 -- -------------------------
 
-vim.opt.tabstop = 2                    -- Number of spaces a <Tab> in the file counts for
-vim.opt.shiftwidth = 2                 -- Number of spaces to use for each step of (auto)indent
-vim.opt.softtabstop = 2                -- Number of spaces in tab when editing
+vim.opt.tabstop = 4                    -- Number of spaces a <Tab> in the file counts for
+vim.opt.shiftwidth = 4                 -- Number of spaces to use for each step of (auto)indent
+vim.opt.softtabstop = 4                -- Number of spaces in tab when editing
 vim.opt.expandtab = false               -- Convert tabs to spaces
 vim.opt.autoindent = true              -- Copy indent from current line when starting a new line
 vim.opt.smartindent = true             -- Automatically inserts one extra level of indentation in some cases
