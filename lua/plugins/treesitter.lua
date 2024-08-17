@@ -94,7 +94,8 @@ return {
 	  enable = true,
 	},
   },
-  build = function()
+  build = function(_, opts)
+	require('treesitter').setup(opts)
 	require("nvim-treesitter.install").update({ with_sync = true })()
   end,
 }

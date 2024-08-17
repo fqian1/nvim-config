@@ -71,6 +71,30 @@ return {
 
 	  lspconfig.rust_analyzer.setup({
 		on_attach = on_attach,
+		settings = {
+		  ['rust-analyzer'] = {
+			assist = { importGranularity = "module", importPrefix = "self" },
+			rustfmt = { enableRangeFormatting = true },
+			lens = { enable = true, debug = true },
+			checkOnSave = { command = "clippy" },
+			files = { excludeDirs = { ".git", "target" } },
+			completion = { addCallArgumentSnippets = true, addCallParanthesis = true },
+			procMacro = { enable = true },
+			diagnostics = { enable = true, disabled = { "unresolved-import" } },
+			cargo = {
+			  allFeatures = true,
+			  noDefaultFeatures = false,
+			  features = { "my_feature" },
+			  loadOutDirsFromCheck = true
+			},
+			inlayHints = {
+			  enable = true,
+			  chainingHints = true,
+			  parameterHints = true,
+			  typeHints = true
+			},
+		  }
+		}
 	  })
 	end
   }
