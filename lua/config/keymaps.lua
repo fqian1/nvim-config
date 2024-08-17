@@ -2,6 +2,24 @@ local map = vim.api.nvim_set_keymap
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+keymap("n", "<leader>pv", ":Ex<CR>", opts)
+
+keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "J", ":m '>-2<CR>gv=gv", opts)
+keymap("v", "J", " mzJ`z", opts)
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-d>zz", opts)
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
+keymap("x", "<leader>p", "\"_dP", opts)
+keymap("n", "<leader>d", "\"_d", opts)
+keymap("v", "<leader>d", "\"_d", opts)
+keymap("n", "Q", "<nop>", opts)
+keymap("n", "<C-k>", "<cmd>cnext<CR>zz", opts)
+keymap("n", "<C-j>", "<cmd>cprev<CR>zz", opts)
+keymap("n", "<leader>k", "<cmd>lnext<CR>zz", opts)
+keymap("n", "<leader>k", "<cmd>lnext<CR>zz", opts)
+
 map('v', '<', '<gv', opts)                          -- Stay in visual mode after shifting left
 map('v', '>', '>gv', opts)                          -- Stay in visual mode after shifting right
 -- Ctrl C and Ctrl V binds

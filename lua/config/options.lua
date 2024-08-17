@@ -116,7 +116,7 @@ vim.cmd('filetype indent on')          -- Enable filetype-based indenting
 -- -------------------------
 
 vim.opt.lazyredraw = true              -- Don't redraw while executing macros (good performance improvement)
-vim.opt.updatetime = 300               -- Faster completion (4000ms default)
+vim.opt.updatetime = 50               -- Faster completion (4000ms default)
 vim.opt.termguicolors = true           -- Enable 24-bit RGB colors in the TUI
 vim.opt.background = 'dark'            -- Set background color to dark
 vim.opt.errorbells = false             -- Disable error bells
