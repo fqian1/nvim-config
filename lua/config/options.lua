@@ -57,7 +57,7 @@ vim.cmd('syntax on')                   -- Enable syntax highlighting
 vim.opt.tabstop = 4                    -- Number of spaces a <Tab> in the file counts for
 vim.opt.shiftwidth = 4                 -- Number of spaces to use for each step of (auto)indent
 vim.opt.softtabstop = 4                -- Number of spaces in tab when editing
-vim.opt.expandtab = false               -- Convert tabs to spaces
+vim.opt.expandtab = false              -- Convert tabs to spaces
 vim.opt.autoindent = true              -- Copy indent from current line when starting a new line
 vim.opt.smartindent = true             -- Automatically inserts one extra level of indentation in some cases
 vim.opt.shiftround = true              -- Round indent to a multiple of 'shiftwidth'
@@ -68,8 +68,8 @@ vim.opt.shiftround = true              -- Round indent to a multiple of 'shiftwi
 
 vim.opt.ignorecase = true              -- Ignore case when searching
 vim.opt.smartcase = true               -- Override ignorecase if search pattern contains uppercase letters
-vim.opt.incsearch = true               -- Show matches as you type
-vim.opt.hlsearch = true                -- Highlight search results
+vim.opt.incsearch = true                -- Show matches as you type
+vim.opt.hlsearch = true 	           -- Highlight search results
 vim.opt.gdefault = true                -- Apply global substitutions by default
 vim.opt.wrapscan = true                -- Wrap searches around the end of the file
 

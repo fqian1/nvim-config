@@ -8,7 +8,7 @@ return {
   opts = {
 	sync_install = false,
 	auto_install = true,
-	ensure_installed = {"c", "cpp", "rust", "go", "zig", "asm"},
+	ensure_installed = {"c", "cpp", "rust", "go", "zig", "asm", "lua"},
 	highlight = {
 	  enable = true, -- Enables syntax highlighting using Treesitter
 	  additional_vim_regex_highlighting = false, -- Disable regex highlighting, which can conflict with Treesitter
