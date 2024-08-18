@@ -19,6 +19,7 @@ keymap("n", "<C-k>", "<cmd>cnext<CR>zz", opts)
 keymap("n", "<C-j>", "<cmd>cprev<CR>zz", opts)
 keymap("n", "<leader>k", "<cmd>lnext<CR>zz", opts)
 keymap("n", "<leader>k", "<cmd>lnext<CR>zz", opts)
+keymap("n", "<C-q>", "<nop>", opts)
 
 map('v', '<', '<gv', opts)                          -- Stay in visual mode after shifting left
 map('v', '>', '>gv', opts)                          -- Stay in visual mode after shifting right
