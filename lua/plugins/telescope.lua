@@ -13,7 +13,6 @@ return {
 
   opts = function()
 	local actions = require('telescope.actions')
-	local fb_actions = require("telescope").extensions.file_browser.actions
 	return {
 	  defaults = {
 		vimgrep_arguments = {
@@ -75,7 +74,15 @@ return {
 		  show_scores = true,
 		  show_unindexed = false,
 		  ignore_patterns = { "*.git/*", "*/tmp/*" },
-		}
+		},
+		file_browser = {
+		  hijack_netrw = true,
+		  hidden = true,
+		  respect_gitignore = false,
+		  select_buffer = true,
+		  search_dirs = {"src", "include"},
+		  recurse_subdirs = true,
+		},
 	  }
 	}
   end,

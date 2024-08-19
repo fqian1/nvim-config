@@ -64,11 +64,19 @@ Telescope mappings (Normal mode):
 
 ## Plugins
 
-List the main plugins used in your configuration:
-
-- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim): Fuzzy finder
-- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig): LSP configuration
-- [Your other plugins...]
+Plugin manager: Lazy.nvim
+Fuzzy finder: Telescope.nvim
+Syntax highligher: Treesitter.nvim
+Completion:
+LSP:
+DAP:
+Linter:
+Undo tree:
+Auto brackets:
+Surround:
+Git signs:
+Indent lines:
+Tokyonight:
 
 ## Custom Functions
 

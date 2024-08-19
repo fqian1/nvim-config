@@ -21,6 +21,7 @@ vim.opt.hidden = true                  -- Allow switching buffers without saving
 vim.opt.scrolloff = 8                  -- Start scrolling 8 lines before reaching the edge of the viewport
 vim.opt.sidescrolloff = 8              -- Keep 8 columns visible to the left and right of the cursor
 vim.g.have_nerd_font = true
+vim.opt.smartcase = true
 
 -- -------------------------
 -- USER INTERFACE
@@ -31,6 +32,7 @@ vim.opt.relativenumber = true          -- Show relative line numbers
 vim.opt.cursorline = true              -- Highlight the current line
 vim.opt.showmatch = true               -- Show matching brackets/parentheses
 vim.opt.matchtime = 2                  -- Highlight matching brackets/parentheses for 2/10th of a second
+vim.opt.breakindent = true
 vim.opt.list = false                   -- Show invisible characters (tabs, spaces, etc.)
 vim.opt.listchars = {tab = '»·', trail = '·', extends = '→', precedes = '←'} -- Set symbols for invisible characters
 vim.opt.linebreak = true               -- Break lines at word boundaries when wrapping
