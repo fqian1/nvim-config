@@ -7,11 +7,13 @@ return {
 	  "hrsh7th/cmp-path",        -- Path completions
 	  "hrsh7th/cmp-cmdline",     -- Cmdline completions
 	  "L3MON4D3/LuaSnip",        -- Snippet engine
-	  "saadparwaiz1/cmp_luasnip" -- Snippet completions
+	  "saadparwaiz1/cmp_luasnip", -- Snippet completions
+	  "github/copilot.nvim"
 	},
 	config = function()
 	  local cmp = require('cmp')
 	  local luasnip = require('luasnip')
+
 
 	  cmp.setup({
 		snippet = {
@@ -47,6 +49,7 @@ return {
 		sources = cmp.config.sources({
 		  { name = 'nvim_lsp' },
 		  { name = 'luasnip' }, -- For luasnip users.
+		  { name = "copilot" }
 		}, {
 		  { name = 'buffer' },
 		})
