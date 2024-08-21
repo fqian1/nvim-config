@@ -8,7 +8,7 @@ return {
 	  "hrsh7th/cmp-cmdline",     -- Cmdline completions
 	  "L3MON4D3/LuaSnip",        -- Snippet engine
 	  "saadparwaiz1/cmp_luasnip", -- Snippet completions
-	  "github/copilot.nvim"
+	  "github/copilot.vim"
 	},
 	config = function()
 	  local cmp = require('cmp')
