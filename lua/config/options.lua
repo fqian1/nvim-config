@@ -1,6 +1,7 @@
 -- -------------------------
 -- BASIC SETTINGS
 -- -------------------------
+--
 
 vim.opt.compatible = false             -- Disable Vi compatibility, allows for more advanced Vim features
 vim.opt.backspace = {'indent', 'eol', 'start'} -- Make backspace work more intuitively
