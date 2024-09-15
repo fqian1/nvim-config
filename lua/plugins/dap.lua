@@ -15,10 +15,5 @@ return {
 	dap.listeners.before.event_exited.dapui_config = function()
 	  dapui.close()
 	end
-	dap.adapters.cppdbg = {
-	  id = 'cppdbg',
-	  type = 'executable',
-	  command = '/home/fqian/debugAdapters/extension/debugAdapters/bin/OpenDebugAD7',
-	}
   end
 }

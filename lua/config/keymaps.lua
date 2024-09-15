@@ -31,8 +31,6 @@ map('v', '<', '<gv', opts)                          -- Stay in visual mode after
 map('v', '>', '>gv', opts)                          -- Stay in visual mode after shifting right
 -- Ctrl C and Ctrl V binds
 map('v', '<C-c>', '"+y', opts)
-map('n', '<C-v>', '"+p', opts)
-map('v', '<C-v>', '"+p', opts)
 map('i', '<C-v>', '<C-r>+', opts)
 -- map('n', '<leader>c', ':Commentary<CR>', opts)      -- Quickly comment out code with leader+c (requires tpope's commentary plugin)
 
@@ -45,19 +43,22 @@ keymap('n', '<leader>fh', builtin.help_tags, opts)
 
 keymap('n', '<leader>t', ':Neotree toggle<CR>', opts)
 
-keymap('n', '<F5>', function() require('dap').continue() end)
-keymap('n', '<F10>', function() require('dap').step_over() end)
-keymap('n', '<F11>', function() require('dap').step_into() end)
-keymap('n', '<F12>', function() require('dap').step_out() end)
-keymap('n', '<Leader>b', function() require('dap').toggle_breakpoint() end)
-keymap('n', '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
-keymap('n', '<Leader>dr', function() require('dap').repl.open() end)
-keymap('n', '<Leader>dl', function() require('dap').run_last() end)
-keymap({'n', 'v'}, '<Leader>dh', function() require('dap.ui.widgets').hover() end)
-keymap({'n', 'v'}, '<Leader>dp', function() require('dap.ui.widgets').preview() end)
-keymap('n', '<Leader>df', function() local widgets = require('dap.ui.widgets') widgets.centered_float(widgets.frames) end)
-keymap('n', '<Leader>ds', function() local widgets = require('dap.ui.widgets') widgets.centered_float(widgets.scopes) end)
+-- Nvim DAP
+map("n", "<Leader>dl", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Debugger step into" })
+map("n", "<Leader>dj", "<cmd>lua require'dap'.step_over()<CR>", { desc = "Debugger step over" })
+map("n", "<Leader>dk", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Debugger step out" })
+map("n", "<Leader>dc>", "<cmd>lua require'dap'.continue()<CR>", { desc = "Debugger continue" })
+map("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Debugger toggle breakpoint" })
+map( "n",
+	"<Leader>dd",
+	"<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+	{ desc = "Debugger set conditional breakpoint" }
+)
+map("n", "<Leader>de", "<cmd>lua require'dap'.terminate()<CR>", { desc = "Debugger reset" })
+map("n", "<Leader>dr", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debugger run last" })
 
+-- rustaceanvim
+map("n", "<Leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<CR>", { desc = "Debugger testables" })
 
 local opts = { buffer = bufnr, noremap = true, silent = true }
 keymap('n', 'gD', vim.lsp.buf.declaration, opts)
