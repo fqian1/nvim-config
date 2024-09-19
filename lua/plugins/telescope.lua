@@ -24,28 +24,8 @@ return {
 		  '--column',
 		  '--smart-case'
 		},
-		prompt_prefix = "🔍 ",
-		selection_caret = "➜ ",
-		entry_prefix = "  ",
-		initial_mode = "insert",
-		sort_mru = true,
-		sorting_strategy = "descending",
-		layout_strategy = "horizontal",
-		layout_config = {
-		  horizontal = {
-			preview_width = 0.6,
-			results_width = 0.8,
-		  },
-		  width = 0.9,
-		  height = 0.9,
-		  preview_cutoff = 120,
-		},
 		file_ignore_patterns = { "node_modules", ".git/" },
-		winblend = 10,
-		border = {},
-		path_display = { "truncate" },
-		color_devicons = true,
-		set_env = { ["COLORTERM"] = "truecolor" },
+		winblend = 0,
 		mappings = {
 		  i = {},
 		  n = {

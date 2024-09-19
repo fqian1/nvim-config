@@ -10,7 +10,7 @@ vim.opt.showcmd = true                 -- Show incomplete commands in the bottom
 vim.opt.wildmenu = true                -- Enable command-line completion in a menu
 vim.opt.wildmode = {'list', 'longest'} -- Complete the longest common string
 vim.opt.encoding = 'utf-8'             -- Use UTF-8 encoding for files
-vim.opt.fileencoding = 'utf-8'         -- Use UTF-8 for the file you're editing
+--vim.opt.fileencoding = 'utf-8'         -- Use UTF-8 for the file you're editing
 vim.opt.autoread = true                -- Auto-reload files when changed externally
 vim.opt.backup = false                 -- Don't keep a backup file after saving
 vim.opt.writebackup = false            -- Don't keep a backup file while saving
@@ -20,8 +20,8 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir" -- Directory for undo fil
 vim.opt.hidden = true                  -- Allow switching buffers without saving
 vim.opt.scrolloff = 8                  -- Start scrolling 8 lines before reaching the edge of the viewport
 vim.opt.sidescrolloff = 8              -- Keep 8 columns visible to the left and right of the cursor
-vim.g.have_nerd_font = true
-vim.opt.smartcase = true
+vim.g.have_nerd_font = true            -- Set to true if you have a Nerd Font installed
+vim.opt.smartcase = true               -- Override ignorecase if search pattern contains uppercase letters
 
 ----------------------
 --- USER INTERFACE ---
@@ -45,8 +45,8 @@ vim.opt.laststatus = 2                 -- Always show the status line
 vim.opt.splitbelow = true              -- Horizontal splits open below the current window
 vim.opt.splitright = true              -- Vertical splits open to the right of the current window
 vim.opt.foldmethod = 'expr'			   -- Use treesitter fold method
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-vim.opt.foldenable = true							 -- Enable folds
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()' -- Use treesitter for folding
+vim.opt.foldenable = true              -- Enable folds
 vim.opt.foldlevelstart = 9             -- Start 3 folds deep
 vim.opt.wildignore = {'*.o', '*.obj', '*.bin', '*.dll', '*.exe'} -- Ignore common binary files during tab completion
 vim.cmd('syntax on')                   -- Enable syntax highlighting
@@ -59,7 +59,7 @@ vim.cmd('syntax on')                   -- Enable syntax highlighting
 vim.opt.tabstop = 4                    -- Number of spaces a <Tab> in the file counts for
 vim.opt.shiftwidth = 4                 -- Number of spaces to use for each step of (auto)indent
 vim.opt.softtabstop = 4                -- Number of spaces in tab when editing
-vim.opt.expandtab = false              -- Convert tabs to spaces
+vim.opt.expandtab = true               -- Convert tabs to spaces
 vim.opt.autoindent = true              -- Copy indent from current line when starting a new line
 vim.opt.smartindent = true             -- Automatically inserts one extra level of indentation in some cases
 vim.opt.shiftround = true              -- Round indent to a multiple of 'shiftwidth'
@@ -82,8 +82,8 @@ vim.opt.wrapscan = true                -- Wrap searches around the end of the fi
 vim.opt.mouse = 'a'                    -- Enable mouse in all modes
 vim.opt.timeoutlen = 500               -- Time in milliseconds to wait for a mapped sequence to complete
 vim.opt.ttimeoutlen = 10               -- Time in milliseconds to wait for key code sequences
-vim.opt.keymodel = {'startsel', 'stopsel'} -- Use Shift and Ctrl to select text
-vim.opt.clipboard = 'unnamed'      -- Use the system clipboard for copy/paste
+-- vim.opt.keymodel = {'startsel', 'stopsel'} -- Use Shift and Ctrl to select text
+-- vim.opt.clipboard = 'unnamed'      -- Use the system clipboard for copy/paste
 -- vim.opt.whichwrap:append {'<', '>', 'h', 'l'} -- Allow left/right arrows to wrap to the previous/next line
 vim.opt.wildignorecase = true          -- Ignore case when completing file names and directories
 
@@ -117,9 +117,11 @@ vim.cmd('filetype indent on')          -- Enable filetype-based indenting
 --- MISCELLANEOUS ---
 ---------------------
 
-vim.opt.lazyredraw = true              -- Don't redraw while executing macros (good performance improvement)
+vim.opt.lazyredraw = true              -- Don't redraw while executing macros
 vim.opt.updatetime = 50				   -- Faster completion (4000ms default)
 vim.opt.termguicolors = true           -- Enable 24-bit RGB colors in the TUI
 vim.opt.background = 'dark'            -- Set background color to dark
 vim.opt.errorbells = false             -- Disable error bells
 vim.opt.visualbell = true              -- Use visual bell instead of beeping
+vim.opt.virtualedit = 'block'          -- Allow cursor to move anywhere in visual block mode
+vim.opt.inccommand = 'split'           -- Show live preview of :s commands
