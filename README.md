@@ -1,6 +1,6 @@
 # My Neovim Configuration
 
-This repository contains my personal Neovim configuration files and plugins.
+This repository contains my personal Neovim configuration files and plugins. Minimal, lightweight, fast.
 
 ## Table of Contents
 
@@ -10,14 +10,11 @@ This repository contains my personal Neovim configuration files and plugins.
 - [Key Mappings](#key-mappings)
 - [Plugins](#plugins)
 - [Custom Functions](#custom-functions)
-- [Colorscheme](#colorscheme)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Prerequisites
 
-- Neovim (version X.X or higher)
-- [Optional] Any additional dependencies (e.g., specific language servers, external tools)
+- Neovim (version 0.10.x or higher)
+- [Optional] luarocks
 
 ## Installation
 
@@ -28,17 +25,20 @@ This repository contains my personal Neovim configuration files and plugins.
 
 2. Clone this repository:
    ```
-   git clone https://github.com/yourusername/neovim-config.git ~/.config/nvim
+   git clone https://github.com/fqian1/neovim-config.git ~/.config/nvim
    ```
 
 ## Features
 
-- List key features of your Neovim configuration
-- e.g., Fuzzy finding, LSP integration, Git integration
+Syntax highlighting
+LSP
+Fuzzy Finding
+Auto Completion
+Undo Tree
+Auto Brackets
+Indent Lines
 
 ## Key Mappings
-
-Describe your custom key mappings here. For example:
 
 - `<leader>ff`: Find files
 - `<leader>fg`: Live grep
@@ -67,21 +67,20 @@ Telescope mappings (Normal mode):
 Plugin manager: Lazy.nvim
 Fuzzy finder: Telescope.nvim
 Syntax highligher: Treesitter.nvim
-Completion:
-LSP:
-DAP:
-Linter:
-Undo tree:
-Auto brackets:
+Completion: nvim-cmp
+LSP: nvim-lspconfig
+DAP: nvim-dap
+Linter: nvim-lint
+Undo tree: undotree
+Auto brackets: 
 Surround:
 Git signs:
 Indent lines:
-Tokyonight:
+Colorscheme: Kanagawa-Dragon
 
 ## Custom Functions
-
-If you have any custom Lua or Vimscript functions, briefly describe them here.
-
-## Colorscheme
-
-tokyonight
+Numerous QOL binds:
+Static cursor when using 'J'
+Centered screen when moving with Ctrl + u/d/n/N
+Copy/Delete to separate buffers with <leader> p and d
+Move focus between buffers with Ctrl + h/j/k/l
