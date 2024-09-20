@@ -13,10 +13,14 @@ return {
   -- lspconfig setup
   config = function()
     local lsp = require("lspconfig")
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
     lsp.rust_analyzer.setup({
       on_attach = require("mason-lspconfig").on_attach,
-      capabilities = require("mason-lspconfig").capabilities,
+      capabilities = capabilities,
+      cmd = {
+        "rustup", "run", "stable", "rust-analyzer",
+      },
       settings = {
         ["rust-analyzer"] = {
           checkOnSave = {
@@ -28,7 +32,7 @@ return {
 
     lsp.lua_ls.setup({
       on_attach = require("mason-lspconfig").on_attach,
-      capabilities = require("mason-lspconfig").capabilities,
+      capabilities = capabilities,
       settings = {
         Lua = {
           diagnostics = {
