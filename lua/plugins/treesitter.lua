@@ -6,6 +6,7 @@ return {
       'andymass/vim-matchup',
       'nvim-treesitter/nvim-treesitter-context'
     },
+
     config = function()
       require('nvim-treesitter.configs').setup({
         ensure_installed = {'c', 'cpp', 'rust', 'go', 'zig', 'asm', 'lua', 'vim', 'vimdoc', 'query', 'markdown', 'markdown_inline'},
@@ -49,6 +50,7 @@ return {
       })
     end
   },
+
   {
     "folke/ts-comments.nvim",
     opts = {},
