@@ -22,10 +22,10 @@ vim.api.nvim_create_autocmd("FocusLost", {
   command = "silent! wa"
 })
 
-vim.api.nvim_create_autocmd("VimResized", {
-  group = vim.api.nvim_create_augroup("ResizeSplits", { clear = true }),
-  command = "tabdo wincmd ="
-})
+-- vim.api.nvim_create_autocmd("VimResized", {
+--   group = vim.api.nvim_create_augroup("ResizeSplits", { clear = true }),
+--   command = "tabdo wincmd ="
+-- })
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = "*.lua",

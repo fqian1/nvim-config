@@ -2,6 +2,7 @@ local map = vim.api.nvim_set_keymap
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+-- less jumpy navigation
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "J", ":m '>-2<CR>gv=gv", opts)
 keymap("v", "J", " mzJ`z", opts)
@@ -9,6 +10,8 @@ keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
+
+-- paste and delete to void register
 keymap("x", "<leader>p", "\"_dP", opts)
 keymap("n", "<leader>d", "\"_d", opts)
 keymap("v", "<leader>d", "\"_d", opts)
@@ -17,10 +20,11 @@ keymap("v", "<leader>d", "\"_d", opts)
 keymap("n", "<leader>j", "<cmd>lnext<CR>zz", opts)
 keymap("n", "<leader>k", "<cmd>lprev<CR>zz", opts)
 
--- these are not useful
+-- unbind some keys
 keymap("n", "Q", "<nop>", opts)
 keymap("n", "<C-q>", "<nop>", opts)
 
+-- more useful escape
 keymap('n', '<Esc>', '<cmd>nohlsearch<CR>', opts)
 keymap('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
@@ -34,7 +38,7 @@ keymap('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 map('v', '<', '<gv', opts)
 map('v', '>', '>gv', opts)
 
--- copy to clipboard with ctrl+c
+-- copy to system clipboard with ctrl+c
 map('v', '<C-c>', '"+y', opts)
 
 -- Nvim DAP

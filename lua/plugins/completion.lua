@@ -7,60 +7,104 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     'hrsh7th/cmp-cmdline',
-    'hrsh7th/nvim-cmp',
     'neovim/nvim-lspconfig',
     'L3MON4D3/LuaSnip',
     'saadparwaiz1/cmp_luasnip',
     'rafamadriz/friendly-snippets',
+    'onsails/lspkind-nvim',
+    'kyazdani42/nvim-web-devicons',
   },
-  opts = {
-    snippet = {
-      expand = function(args)
-        vim.fn["luasnip"](args.body)
-      end,
-    },
-    window = {},
-    mapping = {
-      ['<Tab>'] = require('cmp').mapping(function(fallback)
-        if require('cmp').visible() then
-          require('cmp').select_next_item()
-        elseif require('luasnip').expand_or_jumpable() then
-          require('luasnip').expand_or_jump()
-        else
-          fallback()
-        end
-      end, { 'i', 's' }),
 
-      ['<S-Tab>'] = require('cmp').mapping(function(fallback)
-        if require('cmp').visible() then
-          require('cmp').select_prev_item()
-        elseif require('luasnip').jumpable(-1) then
-          require('luasnip').jump(-1)
-        else
-          fallback()
-        end
-      end, { 'i', 's' }),
-      ['<Esc>'] = require('cmp').mapping.close(),
-      ['<CR>'] = require('cmp').mapping.confirm({ select = true }),
-      ['<C-d>'] = require('cmp').mapping.scroll_docs(-4),
-      ['<C-f>'] = require('cmp').mapping.scroll_docs(4),
-      ['<C-Space>'] = require('cmp').mapping.complete(),
-    },
-    sources = {
-      { name = 'nvim_lsp' },
-      { name = 'buffer' },
-      { name = 'path' },
-      { name = 'cmdline' },
-      { name = 'luasnip' },
-    }, {
-      { name = 'buffer' }
-    },
-  },
+
   config = function()
-
     local cmp = require('cmp')
+    local luasnip = require("luasnip")
+    local lspkind = require('lspkind')
+
+    cmp.setup({
+      snippet = {
+        expand = function(args)
+          require('luasnip').lsp_expand(args.body)
+        end,
+      },
+      window = {
+        completion = {
+          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+          col_offset = -3,
+          side_padding = 0,
+        },
+      },
+      formatting = {
+        fields = { "kind", "abbr", "menu" },
+        format = function(entry, vim_item)
+          local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+          local strings = vim.split(kind.kind, "%s", { trimempty = true })
+          kind.kind = " " .. (strings[1] or "") .. " "
+          kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+          return kind
+        end,
+      },
+
+      mapping = {
+        ['<CR>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            if luasnip.expandable() then
+              luasnip.expand()
+            else
+              cmp.confirm({
+                select = true,
+              })
+            end
+          else
+            fallback()
+          end
+        end),
+
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          elseif luasnip.locally_jumpable(1) then
+            luasnip.jump(1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif luasnip.locally_jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+        ['<esc>'] = require('cmp').mapping.abort(),
+        ['<cr>'] = require('cmp').mapping.confirm({ select = true }),
+        ['<c-d>'] = require('cmp').mapping.scroll_docs(-4),
+        ['<c-f>'] = require('cmp').mapping.scroll_docs(4),
+        ['<c-space>'] = require('cmp').mapping.complete(),
+      },
+
+      view = {
+        entries = { name = 'custom', selection_order = 'near_cursor' }
+      },
+      sources = require('cmp').config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+        { name = 'buffer' },
+      }),
+      {
+        { name = 'buffer' }
+      },
+    })
+
     cmp.setup.cmdline({ '/', '?' }, {
       mapping = cmp.mapping.preset.cmdline(),
+      view = {
+        entries = { name = 'wildmenu', separator = '|' }
+      },
       sources = {
         { name = 'buffer' }
       }

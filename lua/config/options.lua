@@ -2,6 +2,7 @@
 --- BASIC SETTINGS ---
 ----------------------
 
+vim.o.equalalways = false              -- Don't resize windows when splitting
 vim.opt.compatible = false             -- Disable Vi compatibility, allows for more advanced Vim features
 vim.opt.backspace = {'indent', 'eol', 'start'} -- Make backspace work more intuitively
 vim.opt.history = 1000                 -- Increase command history to 1000 lines
@@ -44,7 +45,7 @@ vim.opt.cmdheight = 2                  -- Set the command bar height to 2 lines
 vim.opt.laststatus = 2                 -- Always show the status line
 vim.opt.splitbelow = true              -- Horizontal splits open below the current window
 vim.opt.splitright = true              -- Vertical splits open to the right of the current window
-vim.opt.foldmethod = 'expr'			   -- Use treesitter fold method
+vim.opt.foldmethod = syntax            -- Use treesitter fold method
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()' -- Use treesitter for folding
 vim.opt.foldenable = true              -- Enable folds
 vim.opt.foldlevelstart = 9             -- Start 3 folds deep

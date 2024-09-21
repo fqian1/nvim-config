@@ -1,9 +1,11 @@
 return {
   "williamboman/mason-lspconfig.nvim",
+  main = "williamboman/mason-lspconfig.nvim",
   dependencies = {
     { "williamboman/mason.nvim", opts = {} },
     { "neovim/nvim-lspconfig" },
     { 'github/copilot.vim'},
+    { 'hrsh7th/cmp-nvim-lsp' },
   },
 
   opts = {
@@ -42,6 +44,7 @@ return {
       }
     })
 
+    -- TODO: keymap
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('UserLspConfig', {}),
       callback = function(ev)
