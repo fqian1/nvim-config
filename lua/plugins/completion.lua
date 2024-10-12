@@ -15,7 +15,6 @@ return {
     'kyazdani42/nvim-web-devicons',
   },
 
-
   config = function()
     local cmp = require('cmp')
     local luasnip = require("luasnip")
@@ -37,7 +36,7 @@ return {
       formatting = {
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
-          local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+          local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
           local strings = vim.split(kind.kind, "%s", { trimempty = true })
           kind.kind = " " .. (strings[1] or "") .. " "
           kind.menu = "    (" .. (strings[2] or "") .. ")"
@@ -80,7 +79,7 @@ return {
             fallback()
           end
         end, { "i", "s" }),
-        ['<esc>'] = require('cmp').mapping.abort(),
+        ['<c-e>'] = require('cmp').mapping.abort(),
         ['<cr>'] = require('cmp').mapping.confirm({ select = true }),
         ['<c-d>'] = require('cmp').mapping.scroll_docs(-4),
         ['<c-f>'] = require('cmp').mapping.scroll_docs(4),
@@ -107,7 +106,8 @@ return {
       },
       sources = {
         { name = 'buffer' }
-      }
+      },
+      matching = { disallow_symbol_nonprefix_matching = false }
     })
 
     cmp.setup.cmdline(':', {
@@ -115,8 +115,8 @@ return {
       sources = cmp.config.sources({
         { name = 'path' }
       }, {
-          { name = 'cmdline' }
-        }),
+        { name = 'cmdline' }
+      }),
       matching = { disallow_symbol_nonprefix_matching = false }
     })
   end

@@ -2,6 +2,30 @@ local map = vim.api.nvim_set_keymap
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+-- Set marks using <leader> + number
+map('n', '<leader>1', ':execute "normal! mA"<CR>', opts)
+map('n', '<leader>2', ':execute "normal! mB"<CR>', opts)
+map('n', '<leader>3', ':execute "normal! mC"<CR>', opts)
+map('n', '<leader>4', ':execute "normal! mD"<CR>', opts)
+map('n', '<leader>5', ':execute "normal! mE"<CR>', opts)
+map('n', '<leader>6', ':execute "normal! mF"<CR>', opts)
+map('n', '<leader>7', ':execute "normal! mG"<CR>', opts)
+map('n', '<leader>8', ':execute "normal! mH"<CR>', opts)
+map('n', '<leader>9', ':execute "normal! mI"<CR>', opts)
+map('n', '<leader>0', ':execute "normal! mJ"<CR>', opts)
+
+-- Jump to marks using Ctrl + number
+map('n', '<C-1>', "'A\'\"", opts)
+map('n', '<C-2>', "'B\'\"", opts)
+map('n', '<C-3>', "'C\'\"", opts)
+map('n', '<C-4>', "'D\'\"", opts)
+map('n', '<C-5>', "'E\'\"", opts)
+map('n', '<C-6>', "'F\'\"", opts)
+map('n', '<C-7>', "'G\'\"", opts)
+map('n', '<C-8>', "'H\'\"", opts)
+map('n', '<C-9>', "'I\'\"", opts)
+map('n', '<C-0>', "'J\'\"", opts)
+
 -- less jumpy navigation
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "J", ":m '>-2<CR>gv=gv", opts)
