@@ -79,6 +79,7 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+
         ['<c-e>'] = require('cmp').mapping.abort(),
         ['<cr>'] = require('cmp').mapping.confirm({ select = true }),
         ['<c-d>'] = require('cmp').mapping.scroll_docs(-4),
